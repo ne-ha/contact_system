@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :office_contacts
 
+  resources :phones
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
