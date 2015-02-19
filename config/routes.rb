@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'users#index'
 
+  resources :contacts
+  
   resources :personal_contacts
 
   resources :office_contacts
