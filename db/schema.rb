@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219060002) do
+ActiveRecord::Schema.define(version: 20150219062117) do
 
   create_table "office_contacts", force: :cascade do |t|
     t.integer  "user_id"
