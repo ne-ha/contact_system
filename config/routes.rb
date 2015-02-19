@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   resources :contacts
 
+  resources :personal_details
+
+  resources :office_details
+
   resources :phones
 
   # Example of regular route:
