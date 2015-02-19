@@ -1,14 +1,17 @@
 <center>
   <h1>Contacts Page</h1>
 </center>
-<table>
+<table style="width:70%" >
   <tr>
     <th>Name</th>
     <th>Actions</th>
   </tr>
   <% @contacts.each do |contact|%>
   <tr>
-    <td>contact.name</td>
+    <td><%=contact.full_name %></td>
+    <td><%= link_to "View" , edit_contact_path(contact)%>
+    <%= link_to "Edit" , edit_contact_path(contact)%>
+    <%= link_to "Delete" , contact_path(contact)%></td>
   </tr>
   <% end %>
 
