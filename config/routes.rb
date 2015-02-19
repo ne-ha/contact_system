@@ -8,10 +8,6 @@ Rails.application.routes.draw do
   root 'users#index'
 
   resources :contacts
-  
-  resources :personal_contacts
-
-  resources :office_contacts
 
   resources :phones
 
