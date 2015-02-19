@@ -1,7 +1,7 @@
 <center>
   <h1>Contacts Page</h1>
 
-<%= button_to "Add Contacts",new_contact_path ,data:{ toggle: "modal", target:"#ajax-modal" } %>
+<%= link_to "Add Contacts", "",id: "add_new_contact", :remote=>true %>
 <table style="width:70%" >
   <tr>
     <th>Name</th>
