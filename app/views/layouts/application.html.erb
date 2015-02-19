@@ -9,7 +9,8 @@
 <body>
 
   <%= render 'layouts/user_widget' %>
-  
+  <%= flash[:notice]%>
+  <%= flash[:error]%>
   <%= yield %>
 
 </body>
