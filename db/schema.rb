@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219062117) do
+ActiveRecord::Schema.define(version: 20150219072918) do
 
-  create_table "office_contacts", force: :cascade do |t|
+  create_table "contacts", force: :cascade do |t|
     t.integer  "user_id"
+    t.integer  "personal_detail_id"
+    t.integer  "office_detail_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "office_details", force: :cascade do |t|
+    t.integer  "contact_id"
     t.integer  "phone_id"
     t.string   "office_name"
     t.string   "office_address"
@@ -24,16 +34,23 @@ ActiveRecord::Schema.define(version: 20150219062117) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "personal_contacts", force: :cascade do |t|
-    t.integer  "user_id"
+  create_table "personal_details", force: :cascade do |t|
+    t.integer  "contact_id"
     t.integer  "phone_id"
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "address"
     t.string   "email"
     t.string   "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.integer  "personal_detail_id"
+    t.integer  "office_detail_id"
+    t.string   "cell_phone"
+    t.string   "landline"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "users", force: :cascade do |t|
