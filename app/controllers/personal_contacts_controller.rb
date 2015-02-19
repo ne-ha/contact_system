@@ -1,5 +1,10 @@
 class PersonalContactsController < ApplicationController
+
+  before_action :authenticate_user!
+
   def index
+    @personal = current_user.personal_contacts
+    redirect_to(root_path)
   end
 
   def create
@@ -13,4 +18,5 @@ class PersonalContactsController < ApplicationController
 
   def edit
   end
+  
 end
