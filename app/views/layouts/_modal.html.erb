@@ -3,17 +3,34 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Contact</h4>
+        <h4 class="modal-title" id="myModalLabel">Add Contacts Details</h4>
       </div>
       <div class="modal-body">
         <%= form_for :contact, :url => contacts_path do |form| %>
-          First Name: <%= form.text_field :first_name %>
-          Last Name : <%= form.text_field :last_name %><br />
+          <h4 class="modal-title" id="myModalLabel">Contacts Details</h4>
+          <%= form.fields_for :contact_details do |contact| %>
+            <div class="form-group">
+              <%= contact.text_field :first_name, :placeholder=>"First Name" %>          
+              <%= contact.text_field :last_name, :placeholder=>"Last Name" %>
+            </div>
+          <%end%>
 
+          <h4 class="modal-title" id="myModalLabel">Personal Details</h4>
           <%= form.fields_for :personal_detail do |personal|%>
-            Address: <%= personal.text_field :address %><br/>
-            Email : <%= personal.text_field :email %><br/>
-            Website : <%= personal.text_field :website %><br />
+            <div class ="form-group">
+              <%= personal.text_field :address , :placeholder=>"Address"%>
+              <%= personal.text_field :email, :placeholder=>"Email" %>
+              <%= personal.text_field :website, :placeholder=>"Website" %>
+            </div>
+          <%end%>
+
+          <h4 class="modal-title" id="myModalLabel">Office Details</h4>
+          <%= form.fields_for :office_detail do |office|%>
+            <div class ="form-group">
+              <%= office.text_field :office_address , :placeholder=>"Address"%>
+              <%= office.text_field :office_email, :placeholder=>"Email" %>
+              <%= office.text_field :office_website, :placeholder=>"Website" %>
+            </div>
           <%end%>
       </div>
       <div class="modal-footer">
