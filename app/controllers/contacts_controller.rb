@@ -12,7 +12,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = current_user.contacts.create(contact_param)
-    # @personal_detail = @contact.personal_details.create(personal_param)
+    @personal_detail = @contact.personal_details.create(personal_param)
     redirect_to(root_path)
   end
 
