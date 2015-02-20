@@ -6,20 +6,19 @@
         <h4 class="modal-title" id="myModalLabel">Add Contact</h4>
       </div>
       <div class="modal-body">
-        <%= form_for :contact, :url => contacts_path do |f| %>
-          <table>
-            <tr>
-              <th><%= f.label(:first_name, "First Name")%></th>
-              <td><%= f.text_field(:first_name)%></td></tr>
-            <tr>
-              <th><%= f.label(:last_name, "Last Name")%></th>
-              <td><%= f.text_field(:last_name)%></td>
-            </tr>
-          </table>
+        <%= form_for :contact, :url => contacts_path do |form| %>
+          First Name: <%= form.text_field :first_name %>
+          Last Name : <%= form.text_field :last_name %><br />
+
+          <%= form.fields_for :personal_detail do |personal|%>
+            Address: <%= personal.text_field :address %><br/>
+            Email : <%= personal.text_field :email %><br/>
+            Website : <%= personal.text_field :website %><br />
+          <%end%>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <%= f.submit "Submit" %>
+        <%= form.submit "Submit" %>
       </div>
       <% end %>
     </div>
