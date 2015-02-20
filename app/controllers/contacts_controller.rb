@@ -10,19 +10,26 @@ class ContactsController < ApplicationController
     @contact = current_user.contacts.find(params[:id])
   end
 
-  def new
-    @contact = current_user.contacts.new
-  end
-
   def create
     @contact = current_user.contacts.create(contact_param)
-    respond_to do |format|
-      format.html {redirect_to root_path}
-      format.js
-    end
+    redirect_to(root_path)
+  end
+
+  def destroy
+    @contact = current_user.contacts.find(params[:id]).destroy
+    redirect_to(root_path, :user_id => @user_id)
   end
 
   def edit
+    @contact = current_user.contacts.find(params[:id])
+  end
+
+  def update
+    @contact = current_user.contacts.find(params[:id])
+    if @contact.update_attributes(contact_param)
+      redirect_to(:action => 'show' , :id => @contact.id, :user_id => @user_id)
+    end
+    render('edit')
   end
 
   private
