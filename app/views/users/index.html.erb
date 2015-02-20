@@ -11,7 +11,7 @@
   <% @contacts.each do |contact|%>
   <tr>
     <td><%=contact.full_name %></td>
-    <td><%= link_to "Show" , contact_path(contact)%>
+    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Show</button>
     <%= link_to "Edit" , edit_contact_path(contact)%>
     <%= link_to "Delete" , contact_path(contact)%></td>
   </tr>
@@ -20,3 +20,4 @@
 </center>
 
 <%= render 'layouts/modal' %>
+<%= render 'layouts/modal_show' %>
