@@ -17,7 +17,9 @@
 //= require_tree .
 
 $(document).on('ready', function(){
-  $("#add_new_contact").click(function(e){
+  $("#add_new_contact").click(function(){
     $("#contactModal").modal("show");
   });
 });
+
+  
