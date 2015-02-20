@@ -11,10 +11,9 @@ class ContactsController < ApplicationController
   end
 
   def create
-    binding.pry
     @contact = current_user.contacts.create(contact_param[:contact_details])
-    @personal_detail = @contact.personal_detail.create(contact_param[:personal_detail])
-    @office_detail = @contact.office_detail.create(contact_param[:office_detail])
+    @personal_detail = @contact.create_personal_detail(contact_param[:personal_detail])
+    @office_detail = @contact.create_office_detail(contact_param[:office_detail])
     redirect_to(root_path)
   end
 
