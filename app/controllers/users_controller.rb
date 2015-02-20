@@ -2,8 +2,8 @@ class UsersController < ApplicationController
     
   def index
     @contacts = current_user.contacts
-  end
-
-  
+    #@personal_details = current_user.personal_details
+    #@office_details = current_user.office_details
+  end  
   
 end
