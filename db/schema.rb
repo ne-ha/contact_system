@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220085542) do
+ActiveRecord::Schema.define(version: 20150223051545) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "user_id"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20150220085542) do
 
   create_table "office_details", force: :cascade do |t|
     t.integer  "contact_id"
-    t.integer  "phone_id"
     t.string   "office_name"
     t.string   "office_address"
     t.string   "office_email"
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(version: 20150220085542) do
 
   create_table "personal_details", force: :cascade do |t|
     t.integer  "contact_id"
-    t.integer  "phone_id"
     t.string   "address"
     t.string   "email"
     t.string   "website"
@@ -43,12 +41,12 @@ ActiveRecord::Schema.define(version: 20150220085542) do
   end
 
   create_table "phones", force: :cascade do |t|
-    t.integer  "personal_detail_id"
-    t.integer  "office_detail_id"
     t.string   "cell_phone"
     t.string   "landline"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "office_detail_id"
+    t.integer  "personal_detail_id"
   end
 
   create_table "users", force: :cascade do |t|
