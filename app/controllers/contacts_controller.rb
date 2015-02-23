@@ -30,7 +30,7 @@ class ContactsController < ApplicationController
   def update
     @contact = current_user.contacts.find(params[:id])
     if @contact.update_attributes(contact_param)
-      redirect_to(:action => 'show' , :id => @contact.id, :user_id => @user_id)
+      redirect_to contact_path(:id => @contact.id)
     end
     render('edit')
   end
