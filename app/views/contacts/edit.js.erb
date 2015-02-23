@@ -1,4 +1,5 @@
-$("#modal_edit").html('<%= escape_javascript(render :partial => "shared/modal_edit", :locals =>{:contact => @contact}) %>')
+$("#modal_edit").html('<%= escape_javascript(render :partial => "shared/modal_edit", 
+  :locals =>{:contact => @contact,:personal_detail => @personal_detail}) %>')
 $("#editModal").modal("show");
 
 
