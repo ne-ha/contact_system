@@ -1,0 +1,6 @@
+<% if @contact %>
+  $("#modal_show").html('<%= escape_javascript(render :partial => "layouts/modal_show",:locals=>{:contact=> @contact}) %>')
+  $("#myModal").modal("show");
+<% else %>
+  alert("No contact");
+<%end%>
