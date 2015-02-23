@@ -1,0 +1,19 @@
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit Contacts Details</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for :contact, :url => contacts_path do |form| %>
+          <%= render(:partial => "shared/modal_form", :locals => {:f => form}) %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <%= form.submit "Update" %>
+      </div>
+      <%end %>
+    </div>
+  </div>
+</div>
