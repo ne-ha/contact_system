@@ -6,8 +6,8 @@
         <h4 class="modal-title" id="myModalLabel">Edit Contacts Details</h4>
       </div>
       <div class="modal-body">
-        <%= form_for :contact, :url => contacts_path(:id=> @contact.id) do |form| %>
-          <%= render(:partial => "shared/modal_form", :locals => {:f => form}) %>
+        <%= form_for :contact, :url => contacts_path do |form| %>
+          <%= render(:partial => "shared/modal_form", :locals => {:f => form, :personal_detail => @personal_detail}) %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
