@@ -15,6 +15,7 @@ class ContactsController < ApplicationController
     @contact = current_user.contacts.create(contact_param[:contact_details])
     @personal_detail = @contact.create_personal_detail(contact_param[:personal_detail])
     @office_detail = @contact.create_office_detail(contact_param[:office_detail])
+    #@phone = @contact.create_phone(contact_param[:phone])
     redirect_to(root_path)
   end
 
@@ -40,6 +41,7 @@ class ContactsController < ApplicationController
     def contact_param
       params.require(:contact).permit(contact_details: [:first_name, :last_name], 
         personal_detail: [:address, :email, :website], 
-        office_detail:[:office_name,:office_address, :office_email, :office_website])
+        office_detail:[:office_name,:office_address, :office_email, :office_website],
+        phone:[:cell_phone, :landline])
     end
 end
