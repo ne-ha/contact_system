@@ -12,7 +12,7 @@
   <tr>
     <td><%=contact.full_name %></td>
     <td><%= link_to "Show", contact_path(contact.id), remote: true %>
-      <%= link_to "Edit" , edit_contact_path(contact)%>
+      <%= link_to "Edit" , edit_contact_path(contact.id), remote: true%>
       <%= link_to "Delete" , contact_path(contact)%>
     </td>
   </tr>
@@ -21,7 +21,10 @@
 <%#= paginate @contacts %>
 </center>
 
-<%= render 'layouts/modal' %>
+<%= render 'shared/modal' %>
 <div id="modal_show">
   
+</div>
+<div id="modal_edit">
+
 </div>
