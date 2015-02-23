@@ -3,14 +3,25 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">View Details</h4>
+        <h4 class="modal-title" id="myModalLabel">View Details of <%= @contact.full_name %></h4>
       </div>
       <div class="modal-body">
-        <h1>Personal Details
+        <h3>Personal Details </h3>
+        <ul>
+          <li><%= @contact.personal_detail.address %></li>
+          <li><%= @contact.personal_detail.email %></li>
+          <li><%= @contact.personal_detail.website %></li>
+        </ul>
+        <h3>Office Details </h3>
+        <ul>
+          <li><%= @contact.office_detail.office_address %></li>
+          <li><%= @contact.office_detail.office_email %></li>
+          <li><%= @contact.office_detail.office_website %></li>
+        </ul>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Ok</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
       </div>
     </div>
   </div>
