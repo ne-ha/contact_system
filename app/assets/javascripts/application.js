@@ -20,6 +20,12 @@ $(document).on('ready', function(){
   $("#add_new_contact").click(function(){
     $("#contactModal").modal("show");
   });
+  $(".show_details").click(function(){
+    var contact_id = (this.getAttribute('id')).split("_")[2];
+    $.ajax({url: "/contacts/"+contact_id, success: function(result){
+    }});
+    console.log(contact_id);
+  });
 });
 
   
