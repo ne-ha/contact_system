@@ -6,14 +6,47 @@
         <h4 class="modal-title" id="myModalLabel">Edit Contacts Details</h4>
       </div>
       <div class="modal-body">
-        <%= form_for :contact, :url => contacts_path do |form| %>
-          <%= render(:partial => "shared/modal_form", :locals => {:f => form, :personal_detail => @personal_detail}) %>
+        <%= form_for :contact, :url => contact_path ,html:{ method: "put"} do |form| %>
+            <h4 class="modal-title" id="myModalLabel">Contacts Details</h4>
+            <div class="form-group">
+              <%= form.text_field :first_name, :placeholder=>"First Name" %>          
+              <%= form.text_field :last_name, :placeholder=>"Last Name" %>
+            </div>
+          <h4 class="modal-title" id="myModalLabel">Personal Details</h4>
+          <%= form.fields_for :personal_detail, @contact.personal_detail do |personal|%>
+            <div class ="form-group">
+              <%= personal.text_field :address , :placeholder=>"Address"%>
+              <%= personal.text_field :email, :placeholder=>"Email" %>
+              <%= personal.text_field :website, :placeholder=>"Website" %>
+            </div>
+          <%end%>
+
+          <h4 class="modal-title" id="myModalLabel">Personal Phone</h4>
+          <%= form.fields_for :personal_phone do |phone|%>
+            <%= phone.text_field :cell_phone , :placeholder=>"01-4298822"%>
+            <%= phone.text_field :landline , :placeholder=>"9841234567"%>
+          <%end%>
+
+          <h4 class="modal-title" id="myModalLabel">Office Details</h4>
+          <%= form.fields_for :office_detail do |office|%>
+            <div class ="form-group">
+              <%= office.text_field :office_name , :placeholder=>"Company's Name"%>
+              <%= office.text_field :office_address , :placeholder=>"Address"%>
+              <%= office.text_field :office_email, :placeholder=>"Email" %>
+              <%= office.text_field :office_website, :placeholder=>"Website" %>
+            </div>
+          <%end%>
+
+          <h4 class="modal-title" id="myModalLabel">Office Phone</h4>
+          <%= form.fields_for :office_phone do |phone|%>
+            <%= phone.text_field :cell_phone , :placeholder=>"01-4298822"%>
+            <%= phone.text_field :landline , :placeholder=>"9841234567"%>
+          <%end%>
+        
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <%= form.submit "Update" %>
+        <%end %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <%= form.submit "Update" %>
-      </div>
-      <%end %>
     </div>
   </div>
 </div>
