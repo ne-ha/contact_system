@@ -32,6 +32,7 @@ class ContactsController < ApplicationController
   def edit
     @contact = current_user.contacts.find(params[:id])
     @personal_detail =@contact.personal_detail
+    @personal_phone = @personal_detail.phones
   end
 
   def update
