@@ -1,5 +1,6 @@
 <% if @contact %>
-  $("#modal_show").html('<%= escape_javascript(render :partial => "shared/modal_show",:locals=>{:contact=> @contact}) %>')
+  $("#modal_show").html('<%= escape_javascript(render :partial => "shared/modal_show",
+    :locals=>{:contact=> @contact}) %>')
   $("#myModal").modal("show");
 <% else %>
   alert("No contact");
