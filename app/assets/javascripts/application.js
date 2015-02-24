@@ -16,9 +16,14 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$(document).on('ready', function(){
+$(document).on('page:change', function(){
+
   $("#add_new_contact").click(function(){
     $("#contactModal").modal("show");
+  });
+
+  $("#delete_button").click(function(){
+    $("#deleteModal").modal("show");
   });
 });
 
