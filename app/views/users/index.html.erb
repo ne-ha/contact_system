@@ -1,9 +1,11 @@
 <center>
   <h1>Contacts Page</h1>
 
-<%= link_to "Add Contacts", "",id: "add_new_contact",:remote=>true %>
+<div class="btn btn-default">
+  <%= link_to "Add Contacts", "",id: "add_new_contact",:remote=>true %>
+</div>
 
-<table style="width:70%" >
+<table class="table" style="width:30%; margin-top: 25px;">
   <tr>
     <th>Name</th>
     <th>Actions</th>
@@ -13,18 +15,21 @@
     <td><%=contact.full_name %></td>
     <td><%= link_to "Show", contact_path(contact.id), remote: true %>
       <%= link_to "Edit" , edit_contact_path(contact.id), remote: true%>
-      <%= link_to "Delete" , contact_path(contact)%>
+      <%= link_to "Delete" ,contact_delete_path(contact.id) , remote: true%>
     </td>
   </tr>
   <% end %>
 </table>
-<%#= paginate @contacts %>
+<%= paginate @contacts %>
 </center>
 
-<%= render 'shared/modal' %>
+<%= render 'shared/modal_add_contact' %>
 <div id="modal_show">
   
 </div>
 <div id="modal_edit">
+
+</div>
+<div id="modal_delete">
 
 </div>
