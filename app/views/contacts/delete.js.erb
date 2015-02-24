@@ -1,0 +1,3 @@
+$("#modal_delete").html('<%= escape_javascript(render :partial => "shared/modal_delete", 
+  :locals =>{:contact => @contact}) %>')
+$("#deleteModal").modal("show");
