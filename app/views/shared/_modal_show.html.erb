@@ -11,8 +11,8 @@
           <li><%= @contact.personal_detail.address %></li>
           <li><%= @contact.personal_detail.email %></li>
           <li><%= @contact.personal_detail.website %></li>
-          <li><%#= @contact.personal_detail.phone.cell_phone %></li>
-          <li><%#= @contact.personal_detail.phone.landline %></li>
+          <li><%= @contact.personal_detail.phones.first.cell_phone %></li>
+          <li><%= @contact.personal_detail.phones.first.landline %></li>
         </ul>
         <h3>Office Details </h3>
         <ul>
@@ -20,8 +20,8 @@
           <li><%= @contact.office_detail.office_address %></li>
           <li><%= @contact.office_detail.office_email %></li>
           <li><%= @contact.office_detail.office_website %></li>
-          <li><%#= @contact.office_detail.phone.cell_phone %></li>
-          <li><%#= @contact.office_detail.phone.landline %></li>
+          <li><%= @contact.office_detail.phones.first.cell_phone %></li>
+          <li><%= @contact.office_detail.phones.first.landline %></li>
         </ul>
       </div>
       <div class="modal-footer">
