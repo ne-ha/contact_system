@@ -17,6 +17,26 @@ RSpec.describe Contact, type: :model do
         last_name: 'Tamang')
       expect(contact).to be_valid
     end
+
+    it "can have two contacts with same last_name" do
+      Contact.create(
+        first_name: 'Asha',
+        last_name: 'Shrestha')
+      contact = Contact.new(
+        first_name: 'Tina',
+        last_name: 'Shrestha')
+      expect(contact).to be_valid
+    end
+
+    it "can have two contacts with same name(full name)" do
+      Contact.create(
+        first_name: 'Sam',
+        last_name: 'Shrestha')
+      contact = Contact.new(
+        first_name: 'Sam',
+        last_name: 'Shrestha')
+      expect(contact).to be_valid
+    end
   end 
 
 end
