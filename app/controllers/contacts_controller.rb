@@ -11,12 +11,13 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = current_user.contacts.create(basic_param)
+    @contact = current_user.contacts.create(contact_param[:contact_details])
     @personal_detail = @contact.create_personal_detail(contact_param[:personal_detail])
     @office_detail = @contact.create_office_detail(contact_param[:office_detail])
+    binding.pry
     @personal_phone = @personal_detail.phones.create(contact_param[:personal_phone])
     @office_phone = @office_detail.phones.create(contact_param[:office_phone])
-    if @contact.save  && @personal_detail.save && @office_detail.save && personal_phone.save && @office_phone.save
+    if @contact.save
       flash[:success] = "Contacts created successfully."
     else
       flash[:notice] = "Contacts cannot be created."
@@ -58,7 +59,7 @@ class ContactsController < ApplicationController
   private
   
     def contact_param
-      params.require(:contact).permit(:first_name, :last_name, 
+      params.require(:contact).permit(contact_details:[:first_name, :last_name], 
         personal_detail: [:address, :email, :website], personal_phone:[:cell_phone, :landline],
         office_detail:[:office_name,:office_address, :office_email, :office_website], office_phone:[:cell_phone, :landline])
     end
