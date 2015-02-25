@@ -7,11 +7,5 @@ RSpec.describe PersonalDetail, type: :model do
       expect(personal_detail).to be_valid
   end
 
-  it "is invalid with a duplicate email" do
-    PersonalDetail.create(
-      email: 'test@example.com')
-    personal_detail = PersonalDetail.new(email: 'test@example.com')
-    personal_detail.valid?
-    expect(personal_detail).to be_invalid
-  end
+  
 end

@@ -16,7 +16,11 @@ class ContactsController < ApplicationController
     @office_detail = @contact.create_office_detail(contact_param[:office_detail])
     @personal_phone = @personal_detail.phones.create(contact_param[:personal_phone])
     @office_phone = @office_detail.phones.create(contact_param[:office_phone])
-
+    if @contact.save  && @personal_detail.save && @office_detail.save && personal_phone.save && @office_phone.save
+      flash[:success] = "Contacts created successfully."
+    else
+      flash[:notice] = "Contacts cannot be created."
+    end
     redirect_to(root_path)
   end
 
