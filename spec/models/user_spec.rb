@@ -15,6 +15,20 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user).to be_invalid
     end
+
+    it "is invalid without a password" do
+      user = User.new(password: nil)
+      user.valid?
+      expect(user).to be_invalid
+    end
+
+    it "is invalid with a duplicate email" do
+      User.create(
+        email: 'test@example.com')
+      user = User.new(email: 'test@example.com')
+      user.valid?
+      expect(user).to be_invalid
+    end
   end
 
 end
