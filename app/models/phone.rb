@@ -6,7 +6,4 @@ class Phone < ActiveRecord::Base
   serialize :cell_phone
   serialize :landline
 
-  validates :cell_phone, uniqueness: { scope: :contact_id}
-
-
 end
