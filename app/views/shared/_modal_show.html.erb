@@ -8,20 +8,20 @@
       <div class="modal-body">
         <h3>Personal Details </h3>
         <ul>
-          <li><%= @contact.try(:personal_detail).try(:address) %></li>
-          <li><%= @contact.try(:personal_detail).try(:email) %></li>
-          <li><%= @contact.personal_detail.website %></li>
-          <li><%= @contact.personal_detail.phones.first.cell_phone %></li>
-          <li><%= @contact.personal_detail.phones.first.landline %></li>
+          <li>Address : <%= @contact.try(:personal_detail).try(:address) %></li>
+          <li>Email : <%= @contact.try(:personal_detail).try(:email) %></li>
+          <li>Website : <%= @contact.personal_detail.website %></li>
+          <li>Cell Phone : <%= @contact.personal_detail.phones.first.cell_phone %></li>
+          <li>Landline : <%= @contact.personal_detail.phones.first.landline %></li>
         </ul>
         <h3>Office Details </h3>
         <ul>
-          <li><%= @contact.office_detail.office_name %></li>
-          <li><%= @contact.office_detail.office_address %></li>
-          <li><%= @contact.office_detail.office_email %></li>
-          <li><%= @contact.office_detail.office_website %></li>
-          <li><%= @contact.office_detail.phones.first.cell_phone %></li>
-          <li><%= @contact.office_detail.phones.first.landline %></li>
+          <li>Company's Name : <%= @contact.office_detail.office_name %></li>
+          <li>Address : <%= @contact.office_detail.office_address %></li>
+          <li>Email : <%= @contact.office_detail.office_email %></li>
+          <li>Website : <%= @contact.office_detail.office_website %></li>
+          <li>Cell Phone : <%= @contact.office_detail.phones.first.cell_phone %></li>
+          <li>Landline : <%= @contact.office_detail.phones.first.landline %></li>
         </ul>
       </div>
       <div class="modal-footer">
