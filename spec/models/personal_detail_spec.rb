@@ -10,5 +10,14 @@ RSpec.describe PersonalDetail, type: :model do
     expect(personal).to be_valid
   end
 
+  it "invalid email " do
+    contact = Contact.create(first_name: 'Neal', last_name: 'Maharjan')
+    personal = contact.create_personal_detail( 
+      address: 'Teku' , 
+      email: 'esterexample.com', 
+      website:'www.esss.com')
+    expect(personal).to be_invalid
+  end
+
   
 end
