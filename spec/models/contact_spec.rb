@@ -8,6 +8,12 @@ RSpec.describe Contact, type: :model do
       expect(contact.full_name).to eq 'Anil Shrestha'
     end
 
+    it "is invalid without a firstname" do
+      contact = Contact.new(first_name: nil)
+      contact.valid?
+      expect(contact).to be_invalid
+    end
+
     it "can have two contacts with same first name" do
       Contact.create(
         first_name: 'Sam',
