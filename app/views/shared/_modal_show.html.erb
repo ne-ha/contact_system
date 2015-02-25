@@ -8,8 +8,8 @@
       <div class="modal-body">
         <h3>Personal Details </h3>
         <ul>
-          <li><%= @contact.personal_detail.address %></li>
-          <li><%= @contact.personal_detail.email %></li>
+          <li><%= @contact.try(:personal_detail).try(:address) %></li>
+          <li><%= @contact.try(:personal_detail).try(:email) %></li>
           <li><%= @contact.personal_detail.website %></li>
           <li><%= @contact.personal_detail.phones.first.cell_phone %></li>
           <li><%= @contact.personal_detail.phones.first.landline %></li>
