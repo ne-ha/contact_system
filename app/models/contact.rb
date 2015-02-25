@@ -5,6 +5,8 @@ class Contact < ActiveRecord::Base
   has_one :office_detail
 
   scope :alphabetically, lambda{("contacts.full_name ASC")}
+
+  validates :first_name , presence: true
   
   def full_name
     [first_name, last_name].join(" ")
