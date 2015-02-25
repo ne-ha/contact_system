@@ -14,7 +14,6 @@ class ContactsController < ApplicationController
     @contact = current_user.contacts.create(contact_param[:contact_details])
     @personal_detail = @contact.create_personal_detail(contact_param[:personal_detail])
     @office_detail = @contact.create_office_detail(contact_param[:office_detail])
-    binding.pry
     @personal_phone = @personal_detail.phones.create(contact_param[:personal_phone])
     @office_phone = @office_detail.phones.create(contact_param[:office_phone])
     if @contact.save
