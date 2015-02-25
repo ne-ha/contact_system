@@ -6,4 +6,6 @@ class Phone < ActiveRecord::Base
   serialize :cell_phone
   serialize :landline
 
+  validates_uniqueness_of :cell_phone
+
 end
