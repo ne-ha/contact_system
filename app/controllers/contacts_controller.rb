@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = current_user.contacts.create(basic_param)
+    @contact = current_user.contacts.create(contact_param[:contact])
     @personal_detail = @contact.create_personal_detail(contact_param[:personal_detail])
     @office_detail = @contact.create_office_detail(contact_param[:office_detail])
     @personal_phone = @personal_detail.phones.create(contact_param[:personal_phone])
@@ -26,7 +26,7 @@ class ContactsController < ApplicationController
 
   def destroy
     if current_user.contacts.find(params[:id]).destroy
-      flash[:success] = "Contact deleted successfully."
+      flash[:success] = "Contact deleted successfully"
     else
       flash[:notice] = "Contact cannot be deleted."
     end
