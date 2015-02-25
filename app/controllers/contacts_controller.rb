@@ -16,6 +16,7 @@ class ContactsController < ApplicationController
     @office_detail = @contact.create_office_detail(contact_param[:office_detail])
     @personal_phone = @personal_detail.phones.create(contact_param[:personal_phone])
     @office_phone = @office_detail.phones.create(contact_param[:office_phone])
+
     redirect_to(root_path)
   end
 
@@ -26,6 +27,12 @@ class ContactsController < ApplicationController
   def destroy
     @contact = current_user.contacts.find(params[:id]).destroy
     flash[:notice] = "Contact deleted successfully."
+    if current_user.contacts.find(params[:id]).destroy
+      flash[:success] = ""
+
+    else
+      flash[:notice] = "sdfrg"
+    end
     redirect_to root_path(:id => @contact_id)
   end
 
@@ -39,18 +46,23 @@ class ContactsController < ApplicationController
     @contact = current_user.contacts.find(params[:id])
     @personal_detail = @contact.personal_detail
     @office_detail = @contact.office_detail
-    if @contact.update_attributes(contact_param[:contact_details]) && @personal_detail.update_attributes(contact_param[:personal_detail]) && @office_detail.update_attributes(contact_param[:office_detail]) && @personal_detail.phones.update_attributes(contact_param[:personal_phone]) && @office_detail.phones.update_attributes(contact_param[:office_phone])
+    if @contact.update_attributes(basic_param) && @personal_detail.update_attributes(contact_param[:personal_detail]) && @office_detail.update_attributes(contact_param[:office_detail]) 
       flash[:notice] = "Details updated successfully."
-      redirect_to contact_path(:id => @contact.id)
+      redirect_to root_path
+    else
+      redirect_to root_path
     end
-    render('edit')
   end
 
   private
   
     def contact_param
-      params.require(:contact).permit(contact_details: [:first_name, :last_name], 
+      params.require(:contact).permit(:first_name, :last_name, 
         personal_detail: [:address, :email, :website], personal_phone:[:cell_phone, :landline],
         office_detail:[:office_name,:office_address, :office_email, :office_website], office_phone:[:cell_phone, :landline])
+    end
+
+    def basic_param
+      params.require(:contact).permit(:first_name, :last_name)
     end
 end
