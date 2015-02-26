@@ -8,9 +8,9 @@
       <div class="modal-body">
         <h3>Personal Details </h3>
         <ul>
-          <li>Address : <%= @contact.try(:personal_detail).try(:address) %></li>
-          <li>Email : <%= @contact.try(:personal_detail).try(:email) %></li>
-          <li>Website : <%= @contact.personal_detail.website %></li>
+          <li>Address : <%= @contact.personal_detail.address %></li>
+          <li>Email : <%= @contact.personal_detail.email %></li>
+          <li>Website : <%= @contact.personal_detail.website%></li>
           <li>Cell Phone : <%= @contact.personal_detail.phones.first.cell_phone %></li>
           <li>Landline : <%= @contact.personal_detail.phones.first.landline %></li>
         </ul>
