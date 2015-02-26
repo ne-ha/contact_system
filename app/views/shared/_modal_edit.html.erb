@@ -21,13 +21,6 @@
             </div>
           <%end%>
 
-             
-          <h4 class="modal-title" id="myModalLabel">Personal Phone</h4>
-          <%= form.fields_for :personal_phone,  @contact.personal_detail.phones.first do |phone|%>
-            <%= phone.text_field :cell_phone , :placeholder=>"01-4298822", :value => "#{phone.object.cell_phone}"%>
-            <%= phone.text_field :landline , :placeholder=>"9841234567" , :value => "#{phone.object.landline}"%>
-          <%end%>
-
           <h4 class="modal-title" id="myModalLabel">Office Details</h4>
           <%= form.fields_for :office_detail, @contact.office_detail do |office|%>
             <div class ="form-group">
@@ -38,12 +31,6 @@
             </div>
           <%end%>
 
-          <h4 class="modal-title" id="myModalLabel">Office Phone</h4>
-          <%= form.fields_for :office_phone ,  @contact.office_detail.phones.first do |phone|%>
-            <%= phone.text_field :cell_phone , :placeholder=>"01-4298822", :value => "#{phone.object.cell_phone}"%>
-            <%= phone.text_field :landline , :placeholder=>"9841234567" , :value => "#{phone.object.landline}"%>
-          <%end%>
-        
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           <%= form.submit "Update" %>
         <%end %>
