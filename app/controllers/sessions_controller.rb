@@ -1,5 +1,5 @@
 class SessionsController < Devise::SessionsController
 
-  skip_before_filter :normal_user
+  skip_before_filter :authenticate_user!
 
 end
