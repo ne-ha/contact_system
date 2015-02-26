@@ -4,8 +4,6 @@ class Contact < ActiveRecord::Base
   has_one :personal_detail
   has_one :office_detail
 
-  scope :alphabetically, lambda{("contacts.full_name ASC")}
-
   validates :first_name , presence: true
   
   def full_name
