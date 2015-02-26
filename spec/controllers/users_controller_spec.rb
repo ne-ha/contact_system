@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
 
   before :each do
-    User.make(:email => 'user@example.com' , :password => 'password')
+    User.create(:email => 'user@example.com' , :password => 'password')
   end
 
   # describe "#index" do
@@ -18,7 +18,7 @@ RSpec.describe UsersController, type: :controller do
       fill_in 'Email' , :with => 'user@example.com'
       fill_in 'Password' , :with => 'password'
     end
-    click_button 'Sign in'
+    click_button 'Log in'
     expect(page).to have_content 'Success'
   end
 
