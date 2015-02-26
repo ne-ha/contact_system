@@ -2,10 +2,8 @@ require 'rails_helper'
 
 RSpec.describe ContactsController, type: :controller do
 
-  describe "GET #create " do
-    it "should redirect to index with a notice on successful save"
+  ContactsController.skip_before_filter :authenticate_user!
 
-    it "should redirect to index if the save fail with an error notice"
-  end
+  
 
 end
